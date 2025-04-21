@@ -1,0 +1,90 @@
+
+
+.inputform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   margin-top: 20px;
+}
+.table1{
+    padding: 30px;
+    border-radius: 50px;
+    box-shadow: none;
+    background: linear-gradient(rgba(119, 141, 156, 0.7),rgba(77, 214, 203, 0.7)),url(image/form-img.avif)center/cover no-repeat;
+    width: 50%;
+}
+.input{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.input2{
+    margin-bottom: 20px;
+}
+.input label{
+    font-size: 20px;
+
+}
+.inputbutton{
+    align-items: center;
+    margin-top: 40px;
+    text-align: center;
+}
+button{
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    font-size: medium;
+    cursor: pointer;
+
+}
+.input input{
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    width: 70%;
+    height: 20px;
+    padding: 10px;
+
+}
+.input textarea{
+    border: none;
+    width: 73%;
+    height: 70px;
+    border-radius: 5px;
+}
+#h{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+form{
+    text-align: center;
+}
+.input2 label{
+    font-size: 20px;
+}
+.input2 div{
+    display: flex;
+    justify-content: center;
+}
+.tabledata h2{
+    text-align: center;
+}
+.tabledata{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+table{
+    border-collapse: collapse;
+}
+table th{
+    padding: 8px;
+}
+tbody{
+    text-align: center;
+}

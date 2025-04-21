@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Student-Form</title>
+</head>
+<body>
+<div class="inputform">
+   
+    <div class="table1">
+        <p id="h">STUDENT FORM</p>
+        <form action="">
+            <div class="input">
+                <label for="name">Name</label>
+                <input type="name" id="name" required>
+            </div>
+            <div class="input">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="input">
+                <label for="phone">Phone</label>
+                <input type="number" id="phone" required>
+            </div>
+            <div class="input">
+                <label for="address">Address</label>
+                <textarea id="address" placeholder="add address here.." required></textarea>
+            </div>
+            <div class="input">
+                <label for="dob">D O B</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="input2">
+                <label for="gender"><h4>Gender</h4></label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+
+            </div>
+            <div class="input2">
+                <label for="hobbies"><h4>Hobbies</h4></label>
+                <div>
+                <input type="checkbox" id="cricket" name="hobbies" value="cricket">
+                <label for="cricket">cricket</label>
+                <input type="checkbox" id="reading" name="hobbies" value="reading">
+                <label for="reading">reading</label>
+                <input type="checkbox" id="tv" name="hobbies" value="tv">
+                <label for="tv">TV</label>
+                </div>
+            </div>
+            <div class="input2">
+                <label for="education"><h4>Education</h4></label>
+                <div>
+                    <input type="radio" id="highschool" name="education" value="highschool">
+                    <label for="highschool">High-school</label>
+                    <input type="radio" id="bachelor" name="education" value="bachelor">
+                    <label for="bachelor">Bachelor's</label>
+                    <input type="radio" id="master" name="education" value="master">
+                    <label for="master">Master's</label>
+            </div>
+            </div>
+            <div class="inputbutton">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+<!--data add table-->
+<div class="tabledata">
+    <h2>User Table</h2>
+    <table border="1" id="userTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Hobbies</th>
+                <th>Education</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--sksks-->
+
+        </tbody>
+    </table>
+</div>
+<script>
+    const form = document.querySelector("form")
+    const userTable = document.getElementById("userTable").getElementsByTagName("tbody")[0]
+    form.addEventListener('submit',function (event) {
+        event.preventDefault()
+        const formData = new FormData(form)
+        console.log("formData",FormData)
+        let userData = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            address : formData.get("address"),
+            dob: formData.get("dob"),
+            gender: formData.get("gender"),
+            hobbies: formData.getAll("hobbies").join(","),
+            education: formData.get("education")
+
+        }
+        console.log("userdata",userData)
+        const row = userTable.insertRow()
+        row.innerHTML = `
+        <td>${userData.name}</td>
+        <td>${userData.email}</td>
+        <td>${userData.phone}</td>
+        <td>${userData.address}</td>
+        <td>${userData.dob}</td>
+        <td>${userData.gender}</td>
+        <td>${userData.hobbies}</td>
+        <td>${userData.education}</td>
+        <td>
+            <button onclick="deleterow(this)">Delete</button>
+        </td>
+        `
+        
+        form.reset() 
+    })
+    function deleterow(deleterow){
+        deleterow.parentNode.parentNode.remove()
+    }
+</script>
+
+</body>
+</html>
